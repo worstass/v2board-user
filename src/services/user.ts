@@ -221,6 +221,24 @@ export async function inviteOrders(options?: Record<string, any>) {
   })
 }
 
+export async function invitePackages(options?: Record<string, any>) {
+  return request<API.User.InvitePackagesResult>('/api/v1/user/invite/packages', {
+    method: 'GET',
+    ...(options || {}),
+  })
+}
+
+export async function invitePackageApply(body : API.User.InvitePackageApplyParams, options?: Record<string, any>) {
+  return request<API.User.InvitePackageApplyResult>('/api/v1/user/invite/applyPackage', {
+    method: 'POST',
+    headers: {
+      'Content-Type': apiContentType,
+    },
+    data: body,
+    ...(options || {}),
+  })
+}
+
 export async function transfer(body: API.User.TransferParams, options?: Record<string, any>) {
   return request<API.User.TransferResult>('/api/v1/user/transfer', {
     method: 'POST',

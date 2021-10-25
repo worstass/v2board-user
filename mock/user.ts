@@ -25,7 +25,7 @@ export default {
   },
   'GET /api/v1/user/getStat': async (req: Request, res: Response) => {
     res.status(200).send({
-      data: [3, 3, 1],
+      data: [3, 3, 1, 4],
     })
     return
   },

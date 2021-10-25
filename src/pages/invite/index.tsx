@@ -9,9 +9,11 @@ import { message } from 'antd'
 import { useIntl } from 'umi'
 
 const InvitePage: FC = () => {
-  const [userStats, setUserStats] = useState<statProps>()
+  const [userStats, setUserStats] = useState<statProps | undefined>(undefined)
   const [userInviteCodes, setUserInviteCodes] = useState<API.User.InviteCodeItem[]>()
   const [generateStatus, setGenerateStatus] = useState(false)
+  const [listPackageTabEnable, setListPackageTabEnable] = useState(false)
+
   const intl = useIntl()
 
   const generateSuccessCallback = () => {
@@ -26,19 +28,44 @@ const InvitePage: FC = () => {
         return
       }
       setUserInviteCodes(invitesResult.data.codes)
-      const [registered, commissionPendingBalance, , commissionRate] = invitesResult.data.stat
-      setUserStats({ registered, commissionPendingBalance, commissionRate })
+      const [
+        registered,
+        commissionPendingBalance,
+        ,
+        commissionRate,
+        ,
+        invitePackagePlanId,
+        invitePackageAvailableNumber,
+        invitePackageNumber,
+        invitePackageLimit,
+        invitePackageRecoveryEnable,
+      ] = invitesResult.data.stat
+
+      setUserStats({
+        registered,
+        commissionPendingBalance,
+        commissionRate,
+        invitePackagePlanId,
+        invitePackageAvailableNumber,
+        invitePackageNumber,
+        invitePackageLimit,
+        invitePackageRecoveryEnable,
+      })
       setGenerateStatus(false)
+
+      if (invitePackagePlanId > 0) {
+        setListPackageTabEnable(true)
+      }
     })()
   }, [generateStatus])
   return (
     <>
       <div className="content content-full">
-        {userStats && <Stat {...userStats} />}
+        {userStats !== undefined && <Stat {...userStats} />}
         {userInviteCodes && (
           <Manager dataSource={userInviteCodes} onGenerateSuccess={generateSuccessCallback} />
         )}
-        <List />
+         <List packageTabEnable={listPackageTabEnable} />
       </div>
     </>
   )

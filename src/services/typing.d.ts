@@ -347,7 +347,7 @@ declare namespace API {
     interface InvitesResult {
       data: {
         codes: InviteCodeItem[]
-        stat: number[]
+        stat: any[]
       }
     }
 
@@ -365,6 +365,29 @@ declare namespace API {
 
     interface InviteOrdersResult {
       data: InviteOrderItem[]
+    }
+
+    interface InvitePackageItem {
+      id: number
+      user_id: number 
+      from_user_id: number 
+      plan_id: number  
+      plan_cycle: string 
+      status: number
+      created_at: number 
+      updated_at: number
+    }
+
+    interface InvitePackagesResult {
+      data: InvitePackageItem[]
+    }
+
+    interface InvitePackageApplyParams {
+      package_id: number
+    }
+
+    interface InvitePackageApplyResult {
+      data: true
     }
 
     interface TransferParams {
