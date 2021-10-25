@@ -228,7 +228,10 @@ export async function invitePackages(options?: Record<string, any>) {
   })
 }
 
-export async function invitePackageApply(body : API.User.InvitePackageApplyParams, options?: Record<string, any>) {
+export async function invitePackageApply(
+  body: API.User.InvitePackageApplyParams,
+  options?: Record<string, any>,
+) {
   return request<API.User.InvitePackageApplyResult>('/api/v1/user/invite/applyPackage', {
     method: 'POST',
     headers: {

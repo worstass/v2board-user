@@ -87,7 +87,7 @@ export default {
   'invite.list.tab.commission': 'Commission',
   'invite.list.package.column.updated_at': 'Complete Time',
   'invite.list.package.column.plan_id': 'Subscription',
-  'invite.list.package.column.plan_cycle':'Cycle',
+  'invite.list.package.column.plan_cycle': 'Cycle',
   'invite.list.package.column.plan_cycle.month_price': 'One Month',
   'invite.list.package.column.plan_cycle.quarter_price': 'One Quarter',
   'invite.list.package.column.plan_cycle.half_year_price': 'Half a year',
@@ -115,9 +115,10 @@ export default {
   'invite.stat.commission_pending_balance.tip':
     'The commission will reach your commission account after review.',
   'invite.stat.invite_package_available_number': 'Number of packages available',
-  'invite.stat.invite_package_available_number.tip': 'Number of packages available = System default package number + Number of paid invited users - Number of packages received',
-  'invite.stat.invite_package_number':  'Number of packages received',
-  'invite.stat.invite_package_system_limit':  'System default package number',
+  'invite.stat.invite_package_available_number.tip':
+    'Number of packages available = System default package number + Number of paid invited users - Number of packages received',
+  'invite.stat.invite_package_number': 'Number of packages received',
+  'invite.stat.invite_package_system_limit': 'System default package number',
   'register.invite_code': 'Invitation code',
   'register.invite_code_optional': 'Invitation code (Optional)',
   'register.agree': 'I have read and agree to',

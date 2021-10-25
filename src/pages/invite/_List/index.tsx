@@ -8,7 +8,6 @@ import { useIntl, Link, history, useModel } from 'umi'
 import moment from 'moment'
 import lodash from 'lodash'
 import { useDebounceFn } from 'ahooks'
-import useSubModel from '@/models/useSubModel'
 
 const { Column } = Table
 const { TabPane } = Tabs
@@ -24,7 +23,7 @@ const List: FC<listProps> = (props) => {
   const [userPlans, setUserPlans] = useState<API.User.PlanItem[]>()
   const [defaultTab, setDefaultTab] = useState('commission')
   const [applyPackageStatus, setApplyPackageStatus] = useState(false)
-  const {refresh} = useModel('useSubModel')
+  const { refresh } = useModel('useSubModel')
 
   const intl = useIntl()
 
@@ -55,19 +54,22 @@ const List: FC<listProps> = (props) => {
           setDefaultTab(locationState.tab)
         }
         setApplyPackageStatus(false)
-        refresh()
       }
     })()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [packageTabEnable, applyPackageStatus])
 
   const { run } = useDebounceFn(
     (id: number) => {
-      const invitePackageApplyResult = invitePackageApply({package_id:id})
+      const invitePackageApplyResult = invitePackageApply({ package_id: id })
       if (invitePackageApplyResult === undefined) {
-        return 
+        return
       }
-      message.success(intl.formatMessage({id:'invite.list.package.columm.operation.message.success'}))
+      message.success(
+        intl.formatMessage({ id: 'invite.list.package.columm.operation.message.success' }),
+      )
       setApplyPackageStatus(true)
+      refresh()
     },
     {
       wait: 500,
@@ -192,7 +194,7 @@ const List: FC<listProps> = (props) => {
                     key="plan_cycle"
                     align="center"
                     render={(planCycle: string) => {
-                      let cycleMessageId: string = `invite.list.package.column.plan_cycle.${planCycle}`
+                      const cycleMessageId: string = `invite.list.package.column.plan_cycle.${planCycle}`
                       return <>{intl.formatMessage({ id: cycleMessageId })}</>
                     }}
                   />

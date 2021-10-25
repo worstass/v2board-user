@@ -369,12 +369,12 @@ declare namespace API {
 
     interface InvitePackageItem {
       id: number
-      user_id: number 
-      from_user_id: number 
-      plan_id: number  
-      plan_cycle: string 
+      user_id: number
+      from_user_id: number
+      plan_id: number
+      plan_cycle: string
       status: number
-      created_at: number 
+      created_at: number
       updated_at: number
     }
 

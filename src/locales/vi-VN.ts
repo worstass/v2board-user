@@ -95,7 +95,7 @@ export default {
   'invite.list.package.column.status.unused': 'Không sử dụng',
   'invite.list.package.column.operation': 'Hoạt động',
   'invite.list.package.columm.operation.apply': 'Ứng dụng',
-  'invite.list.package.columm.operation.message.success':'Gói được áp dụng thành công',
+  'invite.list.package.columm.operation.message.success': 'Gói được áp dụng thành công',
   'invite.list.package.columm.operation.apply.title': 'Thông báo! Gói dịch vụ thay đổi',
   'invite.list.package.columm.operation.apply.content':
     'Việc thay đổi gói dịch vụ mới khiến gói hiện tại bị ghi đè bởi đăng ký mới, xin lưu ý.',

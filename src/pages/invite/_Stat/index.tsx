@@ -12,7 +12,7 @@ export interface statProps {
   invitePackageAvailableNumber: number
   invitePackageNumber: number
   invitePackageLimit: number
-  invitePackageRecoveryEnable: boolean 
+  invitePackageRecoveryEnable: boolean
 }
 
 const Stat: FC<statProps> = (props) => {
@@ -24,7 +24,7 @@ const Stat: FC<statProps> = (props) => {
     invitePackageLimit,
     invitePackageNumber,
     invitePackageAvailableNumber,
-    invitePackageRecoveryEnable
+    invitePackageRecoveryEnable,
   } = props
   const intl = useIntl()
   return (
@@ -139,13 +139,15 @@ const Stat: FC<statProps> = (props) => {
                   <div className="font-size-sm text-uppercase text-muted mt-1">
                     <Space>
                       {intl.formatMessage({ id: 'invite.stat.invite_package_available_number' })}
-                     {invitePackageRecoveryEnable !== false &&  <Tooltip
-                        title={intl.formatMessage({
-                          id: 'invite.stat.invite_package_available_number.tip',
-                        })}
-                      >
-                        <QuestionCircleOutlined />
-                      </Tooltip>}
+                      {invitePackageRecoveryEnable !== false && (
+                        <Tooltip
+                          title={intl.formatMessage({
+                            id: 'invite.stat.invite_package_available_number.tip',
+                          })}
+                        >
+                          <QuestionCircleOutlined />
+                        </Tooltip>
+                      )}
                     </Space>
                   </div>
                 </div>

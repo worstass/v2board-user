@@ -65,7 +65,7 @@ const InvitePage: FC = () => {
         {userInviteCodes && (
           <Manager dataSource={userInviteCodes} onGenerateSuccess={generateSuccessCallback} />
         )}
-         <List packageTabEnable={listPackageTabEnable} />
+        <List packageTabEnable={listPackageTabEnable} />
       </div>
     </>
   )

@@ -12,7 +12,7 @@ const Event: FC = () => {
   const { initialState } = useModel('@@initialState')
   const { subState, initSubState } = useModel('useSubModel')
   const { currentUser } = initialState || {}
-  const [unpaidOrders, unprocessedTickets, _, unusedInvitePackages] = userStats
+  const [unpaidOrders, unprocessedTickets, , unusedInvitePackages] = userStats
   const intl = useIntl()
 
   useMount(async () => {
