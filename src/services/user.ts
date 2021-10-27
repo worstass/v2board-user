@@ -96,9 +96,12 @@ export async function servers(options?: Record<string, any>) {
   })
 }
 
-export async function plans(options?: Record<string, any>) {
+export async function plans(params?: API.User.PlansParams,options?: Record<string, any>) {
   return request<API.User.PlansResult>('/api/v1/user/plan/fetch', {
     method: 'GET',
+    params: {
+      ...params,
+    },
     ...(options || {}),
   })
 }

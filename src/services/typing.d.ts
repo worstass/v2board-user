@@ -223,6 +223,10 @@ declare namespace API {
       updated_at: number
     }
 
+    interface PlansParams {
+      display_all? :boolean 
+    }
+
     interface PlansResult {
       data: PlanItem[]
     }

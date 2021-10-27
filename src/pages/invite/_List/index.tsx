@@ -44,7 +44,7 @@ const List: FC<listProps> = (props) => {
           setUserInvitePackages(invitePackagesResult.data)
         }
 
-        const plansResult = await plans()
+        const plansResult = await plans({display_all:true})
         if (plansResult !== undefined) {
           setUserPlans(plansResult.data)
         }
@@ -184,7 +184,7 @@ const List: FC<listProps> = (props) => {
                     key="plan_id"
                     render={(planId: number) => {
                       const plan = lodash.find(userPlans, { id: planId }) as API.User.PlanItem
-                      return <>{plan.name}</>
+                      return <>{plan === undefined? "-" : plan.name}</>
                     }}
                   />
 
