@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import type { FC } from 'react'
-import { Modal } from 'antd'
 import { orderSave } from '@/services'
 import { history, useIntl } from 'umi'
 import { currencyFormatter } from '@/default'
@@ -34,26 +33,20 @@ const Operation: FC<operationProps> = (props) => {
     couponCode,
   } = props
 
-  const orderRun = () => {
-    Modal.confirm({
-      title: intl.formatMessage({ id: 'plan.detail.operation.modal.title' }),
-      content: intl.formatMessage({ id: 'plan.detail.operation.modal.content' }),
-      onOk: async (): Promise<any> => {
-        setDisabled(true)
-        let orderSaveParams: API.User.OrderSaveParams = {
-          plan_id: planID,
-          cycle: planMethod,
-        }
-        if (typeof couponCode !== undefined) {
-          orderSaveParams = { ...orderSaveParams, coupon_code: couponCode }
-        }
-        const orderSaveResult = await orderSave(orderSaveParams)
-        if (orderSaveResult !== undefined) {
-          history.push(`/order/${orderSaveResult.data}`)
-        }
-        setDisabled(false)
-      },
-    })
+  const orderRun = async () => {
+    setDisabled(true)
+    let orderSaveParams: API.User.OrderSaveParams = {
+      plan_id: planID,
+      cycle: planMethod,
+    }
+    if (typeof couponCode !== undefined) {
+      orderSaveParams = { ...orderSaveParams, coupon_code: couponCode }
+    }
+    const orderSaveResult = await orderSave(orderSaveParams)
+    if (orderSaveResult !== undefined) {
+      history.push(`/order/${orderSaveResult.data}`)
+    }
+    setDisabled(false)
   }
 
   return (

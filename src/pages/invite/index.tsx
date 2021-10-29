@@ -12,7 +12,6 @@ const InvitePage: FC = () => {
   const [userStats, setUserStats] = useState<statProps | undefined>(undefined)
   const [userInviteCodes, setUserInviteCodes] = useState<API.User.InviteCodeItem[]>()
   const [generateStatus, setGenerateStatus] = useState(false)
-  const [listPackageTabEnable, setListPackageTabEnable] = useState(false)
 
   const intl = useIntl()
 
@@ -30,32 +29,20 @@ const InvitePage: FC = () => {
       setUserInviteCodes(invitesResult.data.codes)
       const [
         registered,
-        commissionPendingBalance,
-        ,
-        commissionRate,
-        ,
-        invitePackagePlanId,
         invitePackageAvailableNumber,
-        invitePackageNumber,
-        invitePackageLimit,
-        invitePackageRecoveryEnable,
+        invitePackagePerValue,
+        invitePackageTotalValues,
+        invitePackageRecoveryLimit,
       ] = invitesResult.data.stat
 
       setUserStats({
         registered,
-        commissionPendingBalance,
-        commissionRate,
-        invitePackagePlanId,
         invitePackageAvailableNumber,
-        invitePackageNumber,
-        invitePackageLimit,
-        invitePackageRecoveryEnable,
+        invitePackagePerValue,
+        invitePackageTotalValues,
+        invitePackageRecoveryLimit,
       })
       setGenerateStatus(false)
-
-      if (invitePackagePlanId > 0) {
-        setListPackageTabEnable(true)
-      }
     })()
   }, [generateStatus])
   return (
@@ -65,7 +52,7 @@ const InvitePage: FC = () => {
         {userInviteCodes && (
           <Manager dataSource={userInviteCodes} onGenerateSuccess={generateSuccessCallback} />
         )}
-        <List packageTabEnable={listPackageTabEnable} />
+        <List />
       </div>
     </>
   )

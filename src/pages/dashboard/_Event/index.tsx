@@ -12,7 +12,7 @@ const Event: FC = () => {
   const { initialState } = useModel('@@initialState')
   const { subState, initSubState } = useModel('useSubModel')
   const { currentUser } = initialState || {}
-  const [unpaidOrders, unprocessedTickets, , unusedInvitePackages] = userStats
+  const [unpaidOrders, unprocessedTickets, , activatedInvitePackages] = userStats
   const intl = useIntl()
 
   useMount(async () => {
@@ -96,8 +96,8 @@ const Event: FC = () => {
       <div className="alert alert-success" role="alert">
         <Space>
           {intl.formatMessage(
-            { id: 'dashboard.event.unused_invite_packages' },
-            { number: <strong>{unusedInvitePackages}</strong> },
+            { id: 'dashboard.event.activated_invite_packages' },
+            { number: <strong>{activatedInvitePackages}</strong> },
           )}
           <Link className="alert-link" to={{ pathname: '/invite', state: { tab: 'package' } }}>
             {intl.formatMessage({ id: 'dashboard.event.view_now' })}
@@ -126,7 +126,7 @@ const Event: FC = () => {
           {currentUser?.data.telegram_id === 0 && renderTelegramEvent()}
           {unpaidOrders > 0 && renderOrderEvent()}
           {unprocessedTickets > 0 && renderTicketEvent()}
-          {unusedInvitePackages > 0 && renderInvitePackageEvent()}
+          {activatedInvitePackages > 0 && renderInvitePackageEvent()}
 
           {(currentUser?.data.telegram_id as number) > 0 &&
             unpaidOrders === 0 &&

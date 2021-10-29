@@ -1,7 +1,6 @@
 import type { FC } from 'react'
 import { useState } from 'react'
 import { useModel, history } from 'umi'
-import Wallet from './_Wallet'
 import Password from './_Password'
 import Setting from './_Setting'
 import Telegram from './_Telegram'
@@ -42,11 +41,6 @@ const ProfilePage: FC = () => {
     <>
       {currentUser && (
         <div className="content content-full">
-          <Wallet
-            onChange={changeHandler}
-            balance={currentUser.balance}
-            commissionBalance={currentUser.commission_balance}
-          />
           <Password onChange={passwordChangeHandler} />
           <Setting
             remindExpire={Boolean(currentUser.remind_expire).valueOf()}

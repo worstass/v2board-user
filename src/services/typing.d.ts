@@ -225,7 +225,7 @@ declare namespace API {
     }
 
     interface PlansParams {
-      display_all? :boolean 
+      display_all?: boolean
     }
 
     interface PlansResult {
@@ -376,8 +376,8 @@ declare namespace API {
       id: number
       user_id: number
       from_user_id: number
-      plan_id: number
-      plan_cycle: string
+      from_user_email: string
+      value: number
       status: number
       created_at: number
       updated_at: number
@@ -385,14 +385,6 @@ declare namespace API {
 
     interface InvitePackagesResult {
       data: InvitePackageItem[]
-    }
-
-    interface InvitePackageApplyParams {
-      package_id: number
-    }
-
-    interface InvitePackageApplyResult {
-      data: true
     }
 
     interface TransferParams {
