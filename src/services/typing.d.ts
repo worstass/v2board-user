@@ -387,6 +387,14 @@ declare namespace API {
       data: InvitePackageItem[]
     }
 
+    interface InviteStatsResult {
+      data: {
+        invite_users: number
+        total_values: number 
+        invite_code: null|string 
+      }
+    }
+
     interface TransferParams {
       transfer_amount: number
     }

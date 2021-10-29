@@ -106,6 +106,7 @@ export default {
   'dashboard.event.activated_invite_packages': `{number}个邀请流量包, 已生效`,
   'dashboard.event.nothing': '没有任何事件',
   'dashboard.event.pending': '待办事件',
+  'dashboard.invite.copy_link':'复制邀请链接',
   'knowledge.last_update': '最后更新',
   'knowledge.lock.title': '您需要购买订阅才能查看',
   'knowledge.lock.btn': '立即订阅',

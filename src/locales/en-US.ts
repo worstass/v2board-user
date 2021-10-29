@@ -107,6 +107,7 @@ export default {
   'dashboard.event.activated_invite_packages': '{number} invite traffic packages, activated',
   'dashboard.event.nothing': 'No events',
   'dashboard.event.pending': 'To do event',
+  'dashboard.invite.copy_link':'Copy invitation link',
   'knowledge.last_update': 'Last update',
   'knowledge.lock.title': 'You need to purchase a subscription to view',
   'knowledge.lock.btn': 'Subscribe now',

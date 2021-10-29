@@ -231,6 +231,13 @@ export async function invitePackages(options?: Record<string, any>) {
   })
 }
 
+export async function inviteStats(options?: Record<string, any>) {
+  return request<API.User.InviteStatsResult>('/api/v1/user/invite/stats', {
+    method: 'GET',
+    ...(options || {}),
+  })
+}
+
 export async function transfer(body: API.User.TransferParams, options?: Record<string, any>) {
   return request<API.User.TransferResult>('/api/v1/user/transfer', {
     method: 'POST',

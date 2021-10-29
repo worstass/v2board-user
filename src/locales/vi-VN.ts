@@ -108,6 +108,7 @@ export default {
   'dashboard.event.activated_invite_packages': `{number} mời các gói lưu lượng, đã kích hoạt`,
   'dashboard.event.nothing': 'Không có dữ liệu',
   'dashboard.event.pending': 'Để thực hiện',
+  'dashboard.invite.copy_link': 'Sao chép liên kết lời mời',
   'knowledge.last_update': 'Lần cập nhật cuối cùng vào',
   'knowledge.lock.title': 'Bạn cần phải mua một đăng ký để xem',
   'knowledge.lock.btn': 'Theo dõi ngay',

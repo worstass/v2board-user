@@ -3,6 +3,7 @@ import Notice from './_Notice'
 import { useEffect, useState } from 'react'
 import KnowLedge from '@/components/Knowledge'
 import Subscribe from './_Subscribe'
+import Invite from './_Invite'
 import Event from './_Event'
 import { knowledges } from '@/services'
 import { getLocale } from 'umi'
@@ -44,6 +45,7 @@ const DashboardPage: React.FC = () => {
       <div className="row">
         <div className={rigthDivClassName}>
           <Subscribe />
+          <Invite />
           <Event />
         </div>
         <div className="col-xl-8 ">
