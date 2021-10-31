@@ -12,21 +12,6 @@ const Operation: FC<OperationProps> = (props) => {
   const { planID, onResetPrivate } = props
   const intl = useIntl()
 
-  const resetTrafficConfirm = () => {
-    Modal.confirm({
-      title: intl.formatMessage({ id: 'subscribe.top.operation.reset_traffic.title' }),
-      content: intl.formatMessage({ id: 'subscribe.top.operation.reset_traffic.content' }),
-      onOk: (): any => {
-        history.push({
-          pathname: `/plan/${planID}`,
-          state: {
-            method: 'reset_price',
-          },
-        })
-      },
-    })
-  }
-
   const resetPrivate = () => {
     Modal.confirm({
       title: intl.formatMessage({ id: 'subscribe.top.operation.reset_private.title' }),
@@ -54,18 +39,6 @@ const Operation: FC<OperationProps> = (props) => {
           </Link>
         </Menu.Item>
         <Menu.Item key="1">
-          <Link
-            to=""
-            onClick={(e) => {
-              e.preventDefault()
-              resetTrafficConfirm()
-            }}
-          >
-            <i className="fa fa-sync-alt mr-1" />
-            {intl.formatMessage({ id: 'subscribe.top.operation.reset_traffic' })}
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="2">
           <Link
             to=""
             onClick={(e) => {
