@@ -33,7 +33,7 @@ const Operation: FC<OperationProps> = (props) => {
     <>
       <Menu>
         <Menu.Item key="0">
-          <Link to={`/plan/${planID}`}>
+          <Link to={`/plan`}>
             <i className="fa fa-clock mr-1" />
             {intl.formatMessage({ id: 'subscribe.renew' })}
           </Link>

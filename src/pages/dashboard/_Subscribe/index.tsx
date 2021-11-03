@@ -11,7 +11,7 @@ const Subscribe: FC = () => {
   const { subState, initSubState } = useModel('useSubModel')
   const userSummaryProps: summaryProps = subState as summaryProps
   const useOneClickProps: oneClickProps = subState as oneClickProps
-  const planPath = `/plan/${subState.planID?.toString()}`
+  const planPath = `/plan`
   const intl = useIntl()
 
   useMount(async () => {
