@@ -8,11 +8,12 @@ import { inviteGenerate } from '@/services'
 const { Column } = Table
 export interface managerProps {
   dataSource: API.User.InviteCodeItem[]
+  inviteUrl: string | null
   onGenerateSuccess: () => void
 }
 
 const Manager: FC<managerProps> = (props) => {
-  const { dataSource, onGenerateSuccess } = props
+  const { dataSource, inviteUrl, onGenerateSuccess } = props
   const intl = useIntl()
 
   const clickHandler = async () => {
@@ -72,7 +73,10 @@ const Manager: FC<managerProps> = (props) => {
                       to=""
                       onClick={(e: React.MouseEvent) => {
                         e.preventDefault()
-                        const registerUrl = `${window.location.origin}/#/register?code=${record.code}`
+                        const registerUrl =
+                          inviteUrl !== null
+                            ? `${inviteUrl}/#/register?code=${record.code}`
+                            : `${window.location.origin}/#/register?code=${record.code}`
                         clipboardy.write(registerUrl).then(() => {
                           message.success(intl.formatMessage({ id: 'common.message.copy_success' }))
                         })

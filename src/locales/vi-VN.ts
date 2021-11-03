@@ -89,6 +89,7 @@ export default {
   'invite.stat.registerd': 'SỐ LƯỢNG NGƯỜI DÙNG ĐÃ ĐĂNG KÝ',
   'invite.stat.invite_package_available_number': 'SỐ LƯỢNG PACAKGES CÓ SN',
   'invite.stat.invite_package_available_number.tip': `(Số gói mặc định của hệ thống + Số người dùng được mời trả phí * {limit}) - Số gói đã nhận`,
+  'invite.stat.invite_package_activated_number': 'Số lượng gói hàng đã nhận',
   'invite.stat.invite_package_per_value': 'GIAO THÔNG MỖI',
   'invite.stat.invite_package_total_values': 'TỔNG SỐ GIAO THÔNG ĐÃ NHẬN',
   'register.invite_code': 'Mã giới thiệu',

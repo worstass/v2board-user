@@ -55,7 +55,10 @@ const Invite: FC = () => {
               icon={<CopyOutlined />}
               onClick={(e: React.MouseEvent) => {
                 e.preventDefault()
-                const registerUrl = `${window.location.origin}/#/register?code=${userInviteStat?.data.invite_code}`
+                const registerUrl =
+                  userInviteStat?.data.invite_url !== null
+                    ? `${userInviteStat?.data.invite_url}/#/register?code=${userInviteStat?.data.invite_code}`
+                    : `${window.location.origin}/#/register?code=${userInviteStat?.data.invite_code}`
 
                 clipboardy.write(registerUrl).then(() => {
                   message.success(intl.formatMessage({ id: 'common.message.copy_success' }))

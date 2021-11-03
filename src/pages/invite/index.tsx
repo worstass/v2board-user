@@ -11,6 +11,7 @@ import { useIntl } from 'umi'
 const InvitePage: FC = () => {
   const [userStats, setUserStats] = useState<statProps | undefined>(undefined)
   const [userInviteCodes, setUserInviteCodes] = useState<API.User.InviteCodeItem[]>()
+  const [userInviteUrl, setUserInviteUrl] = useState<string | null>(null)
   const [generateStatus, setGenerateStatus] = useState(false)
 
   const intl = useIntl()
@@ -27,21 +28,15 @@ const InvitePage: FC = () => {
         return
       }
       setUserInviteCodes(invitesResult.data.codes)
-      const [
-        registered,
-        invitePackageAvailableNumber,
-        invitePackagePerValue,
-        invitePackageTotalValues,
-        invitePackageRecoveryLimit,
-      ] = invitesResult.data.stat
+      const [invitePackageActivatedNumber, invitePackagePerValue, invitePackageTotalValues] =
+        invitesResult.data.stat
 
       setUserStats({
-        registered,
-        invitePackageAvailableNumber,
+        invitePackageActivatedNumber,
         invitePackagePerValue,
         invitePackageTotalValues,
-        invitePackageRecoveryLimit,
       })
+      setUserInviteUrl(invitesResult.data.invite_url)
       setGenerateStatus(false)
     })()
   }, [generateStatus])
@@ -50,7 +45,11 @@ const InvitePage: FC = () => {
       <div className="content content-full">
         {userStats !== undefined && <Stat {...userStats} />}
         {userInviteCodes && (
-          <Manager dataSource={userInviteCodes} onGenerateSuccess={generateSuccessCallback} />
+          <Manager
+            dataSource={userInviteCodes}
+            inviteUrl={userInviteUrl}
+            onGenerateSuccess={generateSuccessCallback}
+          />
         )}
         <List />
       </div>

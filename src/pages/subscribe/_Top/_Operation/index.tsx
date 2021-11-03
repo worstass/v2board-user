@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { Link, history, useIntl } from 'umi'
+import { Link, useIntl } from 'umi'
 import { Menu, Dropdown, Modal } from 'antd'
 import { resetSecurity } from '@/services'
 

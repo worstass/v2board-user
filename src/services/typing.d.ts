@@ -353,6 +353,7 @@ declare namespace API {
       data: {
         codes: InviteCodeItem[]
         stat: any[]
+        invite_url: string | null
       }
     }
 
@@ -390,8 +391,9 @@ declare namespace API {
     interface InviteStatsResult {
       data: {
         invite_users: number
-        total_values: number 
-        invite_code: null|string 
+        total_values: number
+        invite_code: null | string
+        invite_url: null | string
       }
     }
 
