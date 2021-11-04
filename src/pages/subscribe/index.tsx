@@ -27,6 +27,7 @@ const SubscribePage: FC = () => {
         const data: listItem = {} as listItem
         data.key = `${item.type}-${item.id.toString()}`
         data.name = item.name
+        data.link = item.link
         data.rate = (
           <Tag style={{ minWidth: 60 }}>
             <Space>{item.rate}x</Space>

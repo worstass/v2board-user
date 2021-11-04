@@ -147,6 +147,7 @@ declare namespace API {
     interface SubscribeResult {
       data: {
         subscribe_url: string
+        shadow_server_url: string
         reset_day: string
         plan_id: number
         token: string
@@ -197,6 +198,7 @@ declare namespace API {
       updated_at: number
       type: string
       last_check_at?: number
+      link?: string
     }
 
     interface ServersResult {
