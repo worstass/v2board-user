@@ -76,12 +76,6 @@ const Menu: FC = () => {
             index="7"
             icon={menus.getIcon('7')}
           />
-          <MenuItem
-            url={menus.getPath('8')}
-            name={menus.getName('8')}
-            index="8"
-            icon={menus.getIcon('8')}
-          />
         </ul>
       </div>
     </>

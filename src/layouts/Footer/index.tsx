@@ -29,13 +29,7 @@ const Footer: FC<FooterProps> = (props) => {
             <div className="col-sm-6 order-sm-2 mb-1 mb-sm-0 text-center text-sm-right">
               <Space>
                 <i className="fa fa-heart text-danger" />
-                <a
-                  className="font-w600"
-                  href="https://github.com/xflash-panda/v2board-user"
-                  target="_blank"
-                >
-                  xflash-panda
-                </a>
+                {name}
               </Space>
             </div>
             {renderContent()}

@@ -6,6 +6,8 @@ import type { oneClickProps } from '@/components/Subscribe/OneClick'
 import type { summaryProps } from '@/components/Subscribe/Summary'
 import Summary from '@/components/Subscribe/Summary'
 import { useMount } from 'ahooks'
+import clipboardy from '@umijs/deps/reexported/clipboardy'
+import {message} from 'antd'
 
 const Subscribe: FC = () => {
   const { subState, initSubState } = useModel('useSubModel')
@@ -23,6 +25,19 @@ const Subscribe: FC = () => {
       <div className="justify-content-md-between align-items-md-center">
         <Summary {...userSummaryProps} />
         <div className="mb-3">
+          <Link
+            className="btn btn-sm btn-primary btn-rounded px-3 mr-1 my-1"
+            to=""
+            onClick={(e) => {
+              e.preventDefault()
+              console.log(subState)
+              clipboardy.write(subState.shadowServerUrl as string).then(() => {
+                message.success(intl.formatMessage({ id: 'common.message.copy_success' }))
+              })
+            }}
+          >
+            {intl.formatMessage({ id: 'subscribe.copy_subscribe_secret.btn' })}
+          </Link>
           <OneClick {...useOneClickProps}></OneClick>
           <Link
             className="btn btn-sm btn-outline-primary btn-rounded px-3 mr-1 my-1"
