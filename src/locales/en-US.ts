@@ -69,8 +69,6 @@ export default {
   'subscribe.oneclick.copy_url': 'Copy Subscription URL',
   'subscribe.oneclick.copy_btn': 'Copy SubScription',
   'subscribe.oneclick.btn': 'Quick Subscription',
-  'subscribe.copy_subscribe_secret.btn': 'Outline Key',
-  'subscribe.list.action.copy_link': 'Copy Link',
   'subscribe.oneclick.export': `Export to {name}`,
   'subscribe.summary.not_expired': 'The subscription is valid for unlimited time',
   'subscribe.summary.expired': 'Expired',
