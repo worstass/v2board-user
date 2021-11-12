@@ -2,9 +2,7 @@ import type { FC } from 'react'
 import { useModel, Link, useIntl } from 'umi'
 import type { summaryProps } from '@/components/Subscribe/Summary'
 import Summary from '@/components/Subscribe/Summary'
-import { message } from 'antd'
 import OneClick from '@/components/Subscribe/OneClick'
-import clipboardy from '@umijs/deps/reexported/clipboardy'
 import type { oneClickProps } from '@/components/Subscribe/OneClick'
 import Operation from './_Operation'
 import { useMount } from 'ahooks'
@@ -28,18 +26,6 @@ const Top: FC = () => {
             <div className="d-md-flex justify-content-md-between align-items-md-center">
               <Summary {...userSummaryProps}></Summary>
               <div className="p-1 p-md-3 col-md-6 col-xs-12 text-md-right">
-                <Link
-                  className="btn btn-sm btn-primary btn-rounded px-3 mr-1 my-1"
-                  to=""
-                  onClick={(e) => {
-                    e.preventDefault()
-                    clipboardy.write(subState.shadowServerUrl as string).then(() => {
-                      message.success(intl.formatMessage({ id: 'common.message.copy_success' }))
-                    })
-                  }}
-                >
-                  {intl.formatMessage({ id: 'subscribe.copy_subscribe_secret.btn' })}
-                </Link>
                 <OneClick {...userOneClickProps}></OneClick>
                 {(subState.planID as number) > 0 && (
                   <Operation

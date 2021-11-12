@@ -17,7 +17,6 @@ export interface subscribeState {
   clashUrl: string
   surgeUrl: string
   shadowrocketUrl: string
-  shadowServerUrl: string
   quantumultXUrl: string
 }
 
@@ -80,7 +79,6 @@ export default (): subModel => {
     const planName: string = subscribeResult?.data.plan?.name as string
     const percentBar: string = `${Math.round((usedTrafficNum / transferTotalNum) * 10000) / 100}%`
     const subscribeUrl: string = subscribeResult?.data.subscribe_url
-    const shadowServerUrl: string = subscribeResult?.data.shadow_server_url
     const clientUrls = generateUrls(subscribeUrl)
 
     return {
@@ -93,7 +91,6 @@ export default (): subModel => {
       transferTotal,
       percentBar,
       subscribeUrl,
-      shadowServerUrl,
       ...clientUrls,
     }
   }

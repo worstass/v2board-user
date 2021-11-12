@@ -1,14 +1,12 @@
 import type { FC } from 'react'
 import React from 'react'
-import { Space, Table, Tooltip, message } from 'antd'
-import { QuestionCircleOutlined, LinkOutlined } from '@ant-design/icons'
-import { useIntl, Link } from 'umi'
-import clipboardy from '@umijs/deps/reexported/clipboardy'
+import { Space, Table, Tooltip } from 'antd'
+import { QuestionCircleOutlined } from '@ant-design/icons'
+import { useIntl } from 'umi'
 
 export interface listItem {
   key: string
   name: string
-  link?: string
   status: React.ReactNode
   rate: React.ReactNode
   tags: React.ReactNode
@@ -61,33 +59,6 @@ const List: FC<listProps> = (props) => {
       title: intl.formatMessage({ id: 'subscribe.list.column.tags' }),
       dataIndex: 'tags',
       key: 'tags',
-    },
-    {
-      title: '',
-      dataIndex: 'link',
-      key: 'link',
-      render: (link: string, record: any) => {
-        return (
-          <>
-            {record.link !== undefined && (
-              <Link
-                to=""
-                onClick={(e: React.MouseEvent) => {
-                  e.preventDefault()
-                  clipboardy.write(record.link as string).then(() => {
-                    message.success(intl.formatMessage({ id: 'common.message.copy_success' }))
-                  })
-                }}
-              >
-                <Space>
-                  <LinkOutlined />
-                  {intl.formatMessage({ id: 'subscribe.list.action.copy_link' })}
-                </Space>
-              </Link>
-            )}
-          </>
-        )
-      },
     },
   ]
 
