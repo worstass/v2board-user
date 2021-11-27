@@ -26,6 +26,7 @@ const PlanDetailPage: FC<IRouteComponentProps> = (props) => {
   const { method } = location.state ? (location.state as { method: string }) : { method: '' }
   const [userPlanMethod, setUserPlanMethod] = useState('')
   const [userPrice, setUserPrice] = useState<operationProps>()
+  const [originalTotalAmount, setOriginalTotalAmount] = useState(0)
   const { id } = match.params as { id: number }
   const intl = useIntl()
 
@@ -39,6 +40,7 @@ const PlanDetailPage: FC<IRouteComponentProps> = (props) => {
       totalAmount: methodPrice,
       planMethodName: getMethodName(planMethod),
     })
+    setOriginalTotalAmount(methodPrice)
   }
 
   useEffect(() => {
@@ -84,11 +86,11 @@ const PlanDetailPage: FC<IRouteComponentProps> = (props) => {
     let discountAmount: number
     let totalAmount: number
     if (coupon.type === 1) {
-      discountAmount = coupon.value
-      totalAmount = userPrice.totalAmount - discountAmount
+      discountAmount = coupon.value * 100
+      totalAmount = originalTotalAmount - discountAmount
     } else if (coupon.type === 2) {
-      discountAmount = (coupon.value / 100) * userPrice.totalAmount
-      totalAmount = userPrice.totalAmount - discountAmount
+      discountAmount = (coupon.value / 100) * originalTotalAmount 
+      totalAmount = originalTotalAmount - discountAmount
     } else {
       throw Error('wrong coupon code type')
     }
@@ -108,7 +110,7 @@ const PlanDetailPage: FC<IRouteComponentProps> = (props) => {
           <div
             className="v2board-plan-content"
             dangerouslySetInnerHTML={{ __html: item.content }}
-          ></div>
+          />
         </div>
       </>
     )
@@ -260,9 +262,9 @@ const PlanDetailPage: FC<IRouteComponentProps> = (props) => {
             </div>
             <div className="col-md-4 col-sm-12">
               {userPlan && (
-                <Coupon planID={userPlan?.id} onCheckSuccess={couponCheckCallbackHandler}></Coupon>
+                <Coupon planID={userPlan?.id} onCheckSuccess={couponCheckCallbackHandler} />
               )}
-              {userPrice && <Operation {...userPrice}></Operation>}
+              {userPrice && <Operation {...userPrice} />}
             </div>
           </div>
         )}
