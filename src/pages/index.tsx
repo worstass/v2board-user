@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 
 const IndexPage: React.FC = () => {
   useEffect(() => {
-    history.replace('/dashboard')
+    history.replace('/intro')
   }, [])
   return <></>
 }

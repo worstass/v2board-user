@@ -1,8 +1,10 @@
 export default [
-  { exact: false, path: '/', component: '@/simple/index',
+  { exact: true, path: '/', component: '@/pages/intro' },
+  {
+    path: '/', component: '@/layouts/basic',
     routes: [
-      { exact: true, path: '/', component: '@/pages/index' },
-      { exact: true, path: '/dashboard', component: '@/pages/dashboard/index' },
+      { exact: true, path: '/dashboard', component: 'dashboard' },
+      { exact: true, path: '/404', component: '@/pages/404' },
     ],
   },
 ];

@@ -1,5 +1,6 @@
 import { defineConfig } from 'umi'
 import chainWebpack from './webpack'
+import routes from "./routes";
 const isProduction = process.env.NODE_ENV === 'production'
 const isStandAlone = process.env.STANDALONE !== undefined
 console.log('isProduction:', isProduction)
@@ -59,4 +60,5 @@ export default defineConfig({
     'process.env.CURRENCY_UNIT': process.env.CURRENCY_UNIT ?? 'CNY',
     'process.env.CURRENCY_MAX_DIGITS': 2,
   },
+  routes: routes
 })
