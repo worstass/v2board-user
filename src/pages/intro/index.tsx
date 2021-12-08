@@ -7,8 +7,9 @@ import type { FC } from 'react'
 // import List from './_List'
 // import { message } from 'antd'
 // import { useIntl } from 'umi'
+import { Link } from 'umi'
 
-const InvitePage: FC = () => {
+const IntroPage: FC = () => {
   // const [userStats, setUserStats] = useState<statProps>()
   // const [userInviteCodes, setUserInviteCodes] = useState<API.User.InviteCodeItem[]>()
   // const [generateStatus, setGenerateStatus] = useState(false)
@@ -35,7 +36,8 @@ const InvitePage: FC = () => {
     <>
       <div> intro
       </div>
+        <Link to="/dashboard">Dashboard</Link>
     </>
   )
 }
-export default InvitePage
+export default IntroPage

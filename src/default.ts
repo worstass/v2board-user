@@ -2,7 +2,9 @@ export const loginPath = '/login'
 export const registerPath = '/register'
 export const notFoundPath = '/404'
 export const forgetPath = '/forget'
-const noFetcnUserPaths: string[] = [loginPath, registerPath, notFoundPath, forgetPath]
+export const homePath = '/'
+
+const noFetcnUserPaths: string[] = [loginPath, registerPath, notFoundPath, forgetPath, homePath]
 const noLayoutPaths: RegExp[] = [
   /^\/forget$/,
   /^\/register$/,
