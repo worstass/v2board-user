@@ -60,5 +60,5 @@ export default defineConfig({
     'process.env.CURRENCY_UNIT': process.env.CURRENCY_UNIT ?? 'CNY',
     'process.env.CURRENCY_MAX_DIGITS': 2,
   },
-  routes: routes
+  // routes: routes
 })

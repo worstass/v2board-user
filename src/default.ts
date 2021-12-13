@@ -11,6 +11,7 @@ const noLayoutPaths: RegExp[] = [
   /^\/login$/,
   /^\/ticket\/.+/,
   /^\/404$/,
+  /^\/$/,
 ]
 
 export const isNoLaooutPath = (path: string): boolean => {
