@@ -1,6 +1,6 @@
 import { defineConfig } from 'umi'
 import chainWebpack from './webpack'
-import routes from "./routes";
+// import routes from "./routes";
 const isProduction = process.env.NODE_ENV === 'production'
 const isStandAlone = process.env.STANDALONE !== undefined
 console.log('isProduction:', isProduction)

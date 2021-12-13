@@ -34,8 +34,8 @@ const IntroPage: FC = () => {
   // }, [generateStatus])
   return (
     <>
-      <div> intro
-      </div>
+      {/*<div> intro*/}
+      {/*</div>*/}
         <Link to="/dashboard">Dashboard</Link>
     </>
   )

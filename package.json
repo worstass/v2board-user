@@ -52,6 +52,11 @@
     "umi": "^3.5.13"
   },
   "devDependencies": {
+    "@fortawesome/react-fontawesome": "^0.1.16",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@types/express": "^4.17.13",
     "@types/markdown-it": "^12.2.1",
     "@types/qrcode.react": "^1.0.2",
